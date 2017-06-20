@@ -17,8 +17,12 @@ namespace xBountyHunter.Views {
     public partial class capturadosPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView list;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(capturadosPage));
+            list = this.FindByName<global::Xamarin.Forms.ListView>("list");
         }
     }
 }

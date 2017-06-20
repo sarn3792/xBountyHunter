@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace xBountyHunter
 {
-    public class xBountyApp : ContentPage
+    public class xBountyApp : Application
     {
         public xBountyApp()
         {
-
+            MainPage = new NavigationPage(new Views.MainTabbedPage());
         }
     }
 }

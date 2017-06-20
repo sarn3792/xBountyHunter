@@ -48,6 +48,7 @@
     </Compile>
     <Compile Include="Views\fugitivosPage.cs" />
     <Compile Include="Views\ListViewCell.cs" />
+    <Compile Include="Views\MainTabbedPage.cs" />
     <Compile Include="xBountyApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

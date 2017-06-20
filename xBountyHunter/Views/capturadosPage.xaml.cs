@@ -15,6 +15,15 @@ namespace xBountyHunter.Views
         public capturadosPage()
         {
             InitializeComponent();
+            Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
+            List<Models.mFugitivos> capturados = listaFugitivos.ocFugitivos;
+            list.ItemsSource = capturados;
+        }
+
+        private void list_ItemTapped(object sender, ItemTappedEventArgs args)
+        {
+            Models.mFugitivos fugitivo = (Models.mFugitivos)args.Item;
+            Navigation.PushAsync(new Views.detallePage(fugitivo));
         }
     }
 }

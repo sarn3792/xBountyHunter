@@ -3,4 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="xBountyHunter.Views.capturadosPage"
              Title="Capturados">
+    <ListView x:Name="list" ItemTapped="list_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding Name}" FontSize="20" HorizontalOptions="StartAndExpand"></Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

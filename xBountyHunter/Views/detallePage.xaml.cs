@@ -12,9 +12,12 @@ namespace xBountyHunter.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class detallePage : ContentPage
     {
-        public detallePage()
+        private Models.mFugitivos fugitivo = new Models.mFugitivos();
+        public detallePage(Models.mFugitivos fugitivo)
         {
             InitializeComponent();
+            this.fugitivo = fugitivo;
+            Title = this.fugitivo.Name;
         }
     }
 }
