@@ -11,10 +11,11 @@ namespace xBountyHunter.Views
     {
         public MainTabbedPage()
         {
+            updateDB();
             ToolbarItem btnAgregar = new ToolbarItem("Agregar", "", btnAgregar_onClick);
             ToolbarItems.Add(btnAgregar);
             Title = "X Bounty Hunter";
-            if(Device.OS == TargetPlatform.iOS)
+            if(Device.RuntimePlatform == Device.iOS)
             {
                 Padding = new Thickness(0, 20, 0, 0);
             }
@@ -26,6 +27,12 @@ namespace xBountyHunter.Views
         public void btnAgregar_onClick()
         {
             Navigation.PushAsync(new Views.agregarFugitivo());
+        }
+
+        private void updateDB()
+        {
+            Extras.webServiceConnection ws = new Extras.webServiceConnection(this);
+            ws.connectGET();
         }
     }
 }

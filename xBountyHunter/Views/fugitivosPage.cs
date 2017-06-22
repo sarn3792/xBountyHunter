@@ -14,7 +14,8 @@ namespace xBountyHunter.Views
         {
             Title = "Fugitivos";
             Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
-            list.ItemsSource = listaFugitivos.ocFugitivos;
+            MessagingCenter.Subscribe<Page>(this, "Update", messageCallback);
+            list.ItemsSource = listaFugitivos.getFugitivos();
             list.ItemTemplate = new DataTemplate(typeof(ListViewCell));
             list.ItemTapped += listItemTapped_Tapped;
             Content = list;
@@ -24,6 +25,12 @@ namespace xBountyHunter.Views
         {
             Models.mFugitivos fugitivo = (Models.mFugitivos)args.Item;
             Navigation.PushAsync(new Views.capturarPage(fugitivo));
+        }
+
+        private void messageCallback(Page obj)
+        {
+            Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
+            list.ItemsSource = listaFugitivos.getFugitivos();
         }
     }
 }

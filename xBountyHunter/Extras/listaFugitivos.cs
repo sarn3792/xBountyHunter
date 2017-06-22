@@ -9,30 +9,22 @@ namespace xBountyHunter.Extras
     public class listaFugitivos
     {
         public List<Models.mFugitivos> ocFugitivos;
-
+        private databaseManager db = new databaseManager();
         public listaFugitivos()
         {
-            ocFugitivos = new List<Models.mFugitivos>();
-            ocFugitivos.Add(new Models.mFugitivos
-            {
-                Name = "Armando Olmos"
-            });
-            ocFugitivos.Add(new Models.mFugitivos
-            {
-                Name = "Carlos Martinez"
-            });
-            ocFugitivos.Add(new Models.mFugitivos
-            {
-                Name = "Oscar Ruesga"
-            });
-            ocFugitivos.Add(new Models.mFugitivos
-            {
-                Name = "Jorge Valadez"
-            });
-            ocFugitivos.Add(new Models.mFugitivos
-            {
-                Name = "Guillermo Ortega"
-            });
+            
+        }
+
+        public List<Models.mFugitivos> getFugitivos()
+        {
+            ocFugitivos = db.selectNoCaptured();
+            return ocFugitivos;
+        }
+
+        public List<Models.mFugitivos> getCapturados()
+        {
+            ocFugitivos = db.selectCaptured();
+            return ocFugitivos;
         }
     }
 }

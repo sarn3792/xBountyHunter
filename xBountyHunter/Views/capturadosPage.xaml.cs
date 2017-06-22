@@ -16,14 +16,20 @@ namespace xBountyHunter.Views
         {
             InitializeComponent();
             Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
-            List<Models.mFugitivos> capturados = listaFugitivos.ocFugitivos;
-            list.ItemsSource = capturados;
+            MessagingCenter.Subscribe<Page>(this, "Update", messageCallback);
+            list.ItemsSource = listaFugitivos.getCapturados();
         }
 
         private void list_ItemTapped(object sender, ItemTappedEventArgs args)
         {
             Models.mFugitivos fugitivo = (Models.mFugitivos)args.Item;
             Navigation.PushAsync(new Views.detallePage(fugitivo));
+        }
+
+        private void messageCallback(Page obj)
+        {
+            Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
+            list.ItemsSource = listaFugitivos.getCapturados();
         }
     }
 }

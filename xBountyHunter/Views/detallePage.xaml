@@ -4,6 +4,10 @@
              x:Class="xBountyHunter.Views.detallePage">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
         <Label FontSize="20" HorizontalOptions="Center">Atrapado!!!</Label>
-        <Button HorizontalOptions="Center" Text="Eliminar"></Button>
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" WidthRequest="100"
+                     HeightRequest="100" BackgroundColor="Gray">
+            <Image x:Name="img" Aspect="Fill" WidthRequest="100" HeightRequest="100"/>
+        </StackLayout>
+        <Button HorizontalOptions="Center" Text="Eliminar" Clicked="Button_Clicked"></Button>
     </StackLayout>
 </ContentPage>

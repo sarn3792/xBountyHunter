@@ -13,5 +13,7 @@ namespace xBountyHunter
         {
             MainPage = new NavigationPage(new Views.MainTabbedPage());
         }
+        
+        
     }
 }
