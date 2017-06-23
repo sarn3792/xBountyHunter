@@ -19,6 +19,7 @@ namespace xBountyHunter.iOS
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsMaps.Init();
             LoadApplication(new xBountyApp());
             return base.FinishedLaunching(application, launchOptions);
         }

@@ -117,12 +117,18 @@ namespace xBountyHunter.Views
         private async void Bcapturar_Clicked(object sender, EventArgs e)
         {
             Extras.webServiceConnection ws = new Extras.webServiceConnection(this);
+
+            string udid = DependencyService.Get<DependencyServices.IUDID>().getUDID();
+            Dictionary<string, string> location = DependencyService.Get<DependencyServices.IGetLocation>().getLocation();
+
             Fugitivo.Capturado = true;
             Fugitivo.Foto = imagePath;
+            Fugitivo.Lat = location["Lat"];
+            Fugitivo.Lon = location["Lon"];
             int result = DB.updateItem(Fugitivo);
-            string udid = DependencyService.Get<DependencyServices.IUDID>().getUDID();
+            
             string message = ws.connectPOST(udid);
-            if(result == 1)
+            if (result == 1)
             {
                 await DisplayAlert("Capturado", "El fugitivo " + Fugitivo.Name + " ha sido capturado\n" + message, "Aceptar");
             }
@@ -148,6 +154,18 @@ namespace xBountyHunter.Views
                 img.Source = ImageSource.FromFile(imagePath);
                 bcapturar.IsEnabled = true;
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DependencyService.Get<DependencyServices.IGetLocation>().activarGPS();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            DependencyService.Get<DependencyServices.IGetLocation>().apagarGPS();
         }
     }
 }

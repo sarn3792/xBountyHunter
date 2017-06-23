@@ -8,6 +8,7 @@
                      HeightRequest="100" BackgroundColor="Gray">
             <Image x:Name="img" Aspect="Fill" WidthRequest="100" HeightRequest="100"/>
         </StackLayout>
+        <Button Clicked="Button_Clicked_1" HorizontalOptions="Center" Text="Ver en mapa"></Button>
         <Button HorizontalOptions="Center" Text="Eliminar" Clicked="Button_Clicked"></Button>
     </StackLayout>
 </ContentPage>

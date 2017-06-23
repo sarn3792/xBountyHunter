@@ -11,7 +11,7 @@ namespace xBountyHunter.Extras
 {
     public class databaseManager
     {
-        private static int DATABASE_VERSION = 0;
+        private static int DATABASE_VERSION = 1;
         private SQLiteConnection db;
         private int oldVersion = 0;
 
