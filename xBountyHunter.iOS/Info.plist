@@ -8,8 +8,6 @@
 	<string>We are using your location</string>
 	<key>CFBundleDisplayName</key>
 	<string>xBountyHunter.iOS</string>
-	<key>CFBundleIdentifier</key>
-	<string>samuel.xBountyHunter.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -46,5 +44,7 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>9.3</string>
+	<key>CFBundleIdentifier</key>
+	<string>mx.dwtraining.xBHAd</string>
 </dict>
 </plist>

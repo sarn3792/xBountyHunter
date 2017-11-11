@@ -15,7 +15,26 @@ namespace xBountyHunter.Views
             Title = "Fugitivos";
             Extras.listaFugitivos listaFugitivos = new Extras.listaFugitivos();
             MessagingCenter.Subscribe<Page>(this, "Update", messageCallback);
+
             list.ItemsSource = listaFugitivos.getFugitivos();
+
+            Device.StartTimer(new TimeSpan(0, 5, 0), () =>
+            {
+                try
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        list.ItemsSource = listaFugitivos.getFugitivos();
+                    });
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            });
+
+
             list.ItemTemplate = new DataTemplate(typeof(ListViewCell));
             list.ItemTapped += listItemTapped_Tapped;
             Content = list;

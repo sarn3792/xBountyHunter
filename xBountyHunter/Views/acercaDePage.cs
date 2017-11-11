@@ -16,6 +16,12 @@ namespace xBountyHunter.Views
         private Label lratingvalor;
         private Slider srating;
         private StackLayout verticalStackLayout;
+
+        private StackLayout imageContainer;
+        private Image xamLogo;
+
+        //Device.OpenUri
+        private Label lmoreinfo;
         public acercaDePage()
         {
             ldevelopedby = new Label
@@ -59,11 +65,36 @@ namespace xBountyHunter.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
+            lmoreinfo = new Label
+            {
+                Text = "Mas información", FontSize = 12,
+                HorizontalTextAlignment = TextAlignment.Center,
+                TextColor = Color.FromHex("#7A96EA")
+            };
+
             verticalStackLayout = new StackLayout
             {
                 Orientation = StackOrientation.Vertical,
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
+
+            xamLogo = new Image
+            {
+                Source = ImageSource.FromResource("xBountyHunter.Images.logo_Xamarin.png"),
+                Aspect = Aspect.Fill,
+                WidthRequest = 100, HeightRequest = 100
+            };
+
+            imageContainer = new StackLayout
+            {
+                Orientation = StackOrientation.Vertical,
+                HorizontalOptions = LayoutOptions.Center,
+                WidthRequest = 100,
+                HeightRequest = 100,
+                BackgroundColor = Color.Gray
+            };
+
+            imageContainer.Children.Add(xamLogo);
 
             Title = "Acerca de";
             if (xBountyApp.Current.Properties.ContainsKey("Rating"))
@@ -78,6 +109,15 @@ namespace xBountyHunter.Views
             verticalStackLayout.Children.Add(ltrainingsr);
             verticalStackLayout.Children.Add(srating);
             verticalStackLayout.Children.Add(lratingvalor);
+            verticalStackLayout.Children.Add(imageContainer);
+            verticalStackLayout.Children.Add(lmoreinfo);
+            var tapLbl = new TapGestureRecognizer();
+            tapLbl.Tapped += (sender, args) =>
+            {
+                Device.OpenUri(new Uri("https://dwsoftware.mx/training.php"));
+                lmoreinfo.TextColor = Color.Purple;
+            };
+            lmoreinfo.GestureRecognizers.Add(tapLbl);
 
             srating.ValueChanged += (sender, args) =>
             {

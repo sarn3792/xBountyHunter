@@ -11,7 +11,7 @@ namespace xBountyHunter.Views
     {
         public MainTabbedPage()
         {
-            updateDB();
+            //updateDB();
             ToolbarItem btnAgregar = new ToolbarItem("Agregar", "", btnAgregar_onClick);
             ToolbarItems.Add(btnAgregar);
             Title = "X Bounty Hunter";
@@ -22,6 +22,7 @@ namespace xBountyHunter.Views
             Children.Add(new fugitivosPage());
             Children.Add(new capturadosPage());
             Children.Add(new acercaDePage());
+            Children.Add(new NativeViews.NativeSwitch());
         }
 
         public void btnAgregar_onClick()

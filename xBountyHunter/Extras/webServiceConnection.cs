@@ -92,7 +92,7 @@ namespace xBountyHunter.Extras
                 if(!dbFugitivos.Exists(x => x.Name == fugitivo.Name))
                 {
                     fugitivo.Capturado = false;
-                    db.insertItem(fugitivo);
+                    int i = db.insertItem(fugitivo);
                 }
             }
 

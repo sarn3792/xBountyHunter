@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
+using xBountyHunter.CustomRenders;
 
 namespace xBountyHunter.Views
 {
@@ -13,7 +13,7 @@ namespace xBountyHunter.Views
         private StackLayout horizontalStackLayout;
         Button bagregar;
         Button bcancelar;
-        Entry enewname;
+        EntryCustomRender enewname;
         public agregarFugitivo()
         {
             verticalStackLayout = new StackLayout
@@ -29,13 +29,14 @@ namespace xBountyHunter.Views
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            enewname = new Entry
+            enewname = new EntryCustomRender
             {
                 TextColor = Color.Black,
-                BackgroundColor = Color.FromHex("#d3d3d3"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
+
+            enewname.Effects.Add(Effect.Resolve("xBountyHunter.FocusEffect"));
 
             bagregar = new Button
             {

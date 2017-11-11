@@ -13,7 +13,24 @@ namespace xBountyHunter
         {
             MainPage = new NavigationPage(new Views.MainTabbedPage());
         }
-        
-        
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            Device.StartTimer(new TimeSpan(0, 0, 30), () =>
+            {
+                try
+                {
+                    Extras.webServiceConnection ws = new Extras.webServiceConnection(MainPage);
+                    ws.connectGET();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            });
+        }
+
     }
 }

@@ -11,7 +11,7 @@
 namespace xBountyHunter.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Samuel\\documents\\visual studio 2015\\Projects\\xBountyHunter\\xBountyHunter" +
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Samuel\\Documents\\Visual Studio 2015\\Projects\\xBountyHunter\\xBountyHunter" +
         "\\Views\\detallePage.xaml")]
     public partial class detallePage : global::Xamarin.Forms.ContentPage {
         
